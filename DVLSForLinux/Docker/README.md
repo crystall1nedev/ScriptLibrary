@@ -39,6 +39,7 @@ To modify any of the following, add the parameter and the corresponding value to
 
 | Parameter                                | Description                                                                            |
 | ---------------------------------------- | -------------------------------------------------------------------------------------- |
+| `MSSQL_HOST`                             | Set responding Microsoft SQL Server address (defaults to `mssql`)                      |
 | `DVLS_HOSTNAME`                          | Set responding DVLS hostname (defaults to `127.0.0.1`, `localhost`, `IP of container`) |
 | `DVLS_ADMIN_EMAIL`                       | Set the associated DVLS admin email (defaults to `admin@replaceme.com`)                |
 | `DVLS_ADMIN_USERNAME`                    | Set the DVLS admin username (defaults to `dvls-admin`)                                 |
