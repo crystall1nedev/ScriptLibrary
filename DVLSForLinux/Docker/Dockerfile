@@ -19,7 +19,7 @@ ARG MSSQL_HOST `
 
 # Assigning the ARG values to ENV using the format of `${VARIABLE:-DEFAULTVALUE}` allows for overriding
 # - S6_KEEP_ENV allows defined environmental variables in Docker to travel into sub-processes of s6-overlay
-ENV MSSQL_HOST=${MSSQL_ADDRESS:-"mssql"}
+ENV MSSQL_HOST=${MSSQL_ADDRESS:-"mssql"} `
     DVLS_HOSTNAME=${DVLS_HOSTNAME:-"dvls"} `
     DVLS_ADMIN_EMAIL=${DVLS_ADMIN_EMAIL:-"admin@replaceme.com"} `
     DVLS_ADMIN_USERNAME=${DVLS_ADMIN_USERNAME:-"dvls-admin"} `
