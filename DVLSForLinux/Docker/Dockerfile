@@ -121,14 +121,14 @@ RUN /usr/bin/pwsh -File /tmp/prep.ps1
 # - Verify that the database container is accessible before proceeding
 RUN <<"EOF"
 cat <<'EOC' >> /tmp/init.ps1
-& /opt/mssql-tools/bin/sqlcmd -S mssql -U sa -P $Env:MSSQL_SA_PASSWORD -Q "Select 1" -C -b -o /dev/null
+& /opt/mssql-tools/bin/sqlcmd -S $Env:MSSQL_HOST -U sa -P $Env:MSSQL_SA_PASSWORD -Q "Select 1" -C -b -o /dev/null
 
 if ($LASTEXITCODE -ne 0)
 {
     & kill -s SIGTERM 1
 }
 
-$DBTest = & /opt/mssql-tools/bin/sqlcmd -S mssql -U sa -P $Env:MSSQL_SA_PASSWORD -Q "IF EXISTS (SELECT * FROM sys.databases WHERE name = 'dvls') BEGIN SELECT 1 END" -C -b
+$DBTest = & /opt/mssql-tools/bin/sqlcmd -S $Env:MSSQL_HOST -U sa -P $Env:MSSQL_SA_PASSWORD -Q "IF EXISTS (SELECT * FROM sys.databases WHERE name = 'dvls') BEGIN SELECT 1 END" -C -b
 
 if ($DBTest -ne $null) {
     exit
